@@ -1,0 +1,528 @@
+[
+  {
+    "id": "cmhdvossh000pereckv0y280y",
+    "odooId": 6,
+    "name": "Ergonomic Office Chair",
+    "slug": "ergonomic-office-chair",
+    "description": "Professional ergonomic office chair with lumbar support and adjustable height.",
+    "price": 25000,
+    "compareAtPrice": 35000,
+    "category": "chairs",
+    "tags": [
+      "office",
+      "ergonomic",
+      "professional",
+      "adjustable"
+    ],
+    "inStock": true,
+    "inventory": 20,
+    "weight": 15.5,
+    "dimensions": {
+      "width": 70,
+      "height": 120,
+      "length": 70
+    },
+    "avgRating": 5,
+    "reviewCount": 1,
+    "createdAt": "2025-10-30T20:29:55.265Z",
+    "updatedAt": "2026-01-21T18:45:36.785Z",
+    "images": [
+      {
+        "id": "cmhdvossh000qerec3ya4o4b7",
+        "productId": "cmhdvossh000pereckv0y280y",
+        "src": "https://picsum.photos/seed/office-chair/800/600",
+        "alt": "Ergonomic office chair",
+        "position": 0
+      }
+    ],
+    "variants": [
+      {
+        "id": "cmhdvossh000rerecklql7y97",
+        "productId": "cmhdvossh000pereckv0y280y",
+        "name": "Color",
+        "value": "Black",
+        "priceAdjustment": 0,
+        "inStock": true,
+        "inventory": 0
+      },
+      {
+        "id": "cmhdvossh000serect9l2b7us",
+        "productId": "cmhdvossh000pereckv0y280y",
+        "name": "Color",
+        "value": "Gray",
+        "priceAdjustment": 1000,
+        "inStock": true,
+        "inventory": 0
+      },
+      {
+        "id": "cmhdvossh000terecn3k5jn4k",
+        "productId": "cmhdvossh000pereckv0y280y",
+        "name": "Material",
+        "value": "Mesh",
+        "priceAdjustment": 0,
+        "inStock": true,
+        "inventory": 0
+      },
+      {
+        "id": "cmhdvossh000uerecsk1gjhpc",
+        "productId": "cmhdvossh000pereckv0y280y",
+        "name": "Material",
+        "value": "Leather",
+        "priceAdjustment": 8000,
+        "inStock": true,
+        "inventory": 0
+      }
+    ],
+    "collections": []
+  },
+  {
+    "id": "cmhdvot3f000xerecskkvmshf",
+    "odooId": 7,
+    "name": "Bookshelf Unit",
+    "slug": "bookshelf-unit",
+    "description": "Five-tier wooden bookshelf with adjustable shelves. Great for home office or living room.",
+    "price": 1,
+    "compareAtPrice": 1,
+    "category": "storage",
+    "tags": [
+      "bookshelf",
+      "storage",
+      "wood",
+      "adjustable"
+    ],
+    "inStock": true,
+    "inventory": 50,
+    "weight": 35,
+    "dimensions": null,
+    "avgRating": 0,
+    "reviewCount": 0,
+    "createdAt": "2025-10-30T20:29:55.660Z",
+    "updatedAt": "2026-01-21T18:45:37.197Z",
+    "images": [
+      {
+        "id": "cmi4rjl63000pi0d3fj184q2n",
+        "productId": "cmhdvot3f000xerecskkvmshf",
+        "src": "https://picsum.photos/seed/bookshelf/800/600",
+        "alt": "Bookshelf Unit",
+        "position": 0
+      }
+    ],
+    "variants": [
+      {
+        "id": "cmi4rjl63000qi0d37yn3v29a",
+        "productId": "cmhdvot3f000xerecskkvmshf",
+        "name": "Color",
+        "value": "Natural",
+        "priceAdjustment": 0,
+        "inStock": true,
+        "inventory": 0
+      },
+      {
+        "id": "cmi4rjl63000ri0d347ji08ch",
+        "productId": "cmhdvot3f000xerecskkvmshf",
+        "name": "Color",
+        "value": "White",
+        "priceAdjustment": 1500,
+        "inStock": true,
+        "inventory": 0
+      },
+      {
+        "id": "cmi4rjl63000si0d35k4uku0s",
+        "productId": "cmhdvot3f000xerecskkvmshf",
+        "name": "Color",
+        "value": "Dark Brown",
+        "priceAdjustment": 2000,
+        "inStock": true,
+        "inventory": 0
+      }
+    ],
+    "collections": []
+  },
+  {
+    "id": "cmimst7cy0000enec79gbm0sg",
+    "odooId": 8,
+    "name": "Demo",
+    "slug": "demo",
+    "description": "Demo",
+    "price": 1,
+    "compareAtPrice": 1,
+    "category": "bedroom",
+    "tags": [
+      "modern"
+    ],
+    "inStock": true,
+    "inventory": 8,
+    "weight": 0.5,
+    "dimensions": null,
+    "avgRating": 0,
+    "reviewCount": 0,
+    "createdAt": "2025-12-01T06:58:59.842Z",
+    "updatedAt": "2026-01-21T18:45:37.695Z",
+    "images": [
+      {
+        "id": "cmimst7cy0001enecon7vtffx",
+        "productId": "cmimst7cy0000enec79gbm0sg",
+        "src": "https://res.cloudinary.com/dlq8yimxz/image/upload/v1764572308/ecommerce/products/mebs1x5locdplsb9eulv.jpg",
+        "alt": "Demo",
+        "position": 0
+      },
+      {
+        "id": "cmimst7cy0002enecj5oq4iih",
+        "productId": "cmimst7cy0000enec79gbm0sg",
+        "src": "https://res.cloudinary.com/dlq8yimxz/image/upload/v1764572314/ecommerce/products/x9kdfhhnyh8qdiyk38wy.jpg",
+        "alt": "Demo",
+        "position": 1
+      }
+    ],
+    "variants": [],
+    "collections": []
+  },
+  {
+    "id": "cmkoddzbj0008ipfpm619oofv",
+    "odooId": 1,
+    "name": "Standard delivery",
+    "slug": "test-product-1",
+    "description": "Test Product",
+    "price": 100,
+    "compareAtPrice": null,
+    "category": "Test",
+    "tags": [],
+    "inStock": true,
+    "inventory": 0,
+    "weight": null,
+    "dimensions": null,
+    "avgRating": 0,
+    "reviewCount": 0,
+    "createdAt": "2026-01-21T18:42:12.238Z",
+    "updatedAt": "2026-01-21T18:42:12.238Z",
+    "images": [],
+    "variants": [],
+    "collections": []
+  },
+  {
+    "id": "cmhdvos5h0006erecni73z1v4",
+    "odooId": 2,
+    "name": "Modern Sectional Sofa",
+    "slug": "modern-sectional-sofa",
+    "description": "A contemporary sectional sofa with clean lines and plush cushions. Perfect for modern living rooms.",
+    "price": 125000,
+    "compareAtPrice": 150000,
+    "category": "sofas",
+    "tags": [
+      "modern",
+      "sectional",
+      "contemporary",
+      "living-room"
+    ],
+    "inStock": true,
+    "inventory": 12,
+    "weight": 85.5,
+    "dimensions": {
+      "width": 180,
+      "height": 85,
+      "length": 280
+    },
+    "avgRating": 0,
+    "reviewCount": 0,
+    "createdAt": "2025-10-30T20:29:54.437Z",
+    "updatedAt": "2026-01-21T18:45:34.920Z",
+    "images": [
+      {
+        "id": "cmhdvos5h0007erec8yelitd2",
+        "productId": "cmhdvos5h0006erecni73z1v4",
+        "src": "https://picsum.photos/seed/sofa-1/800/600",
+        "alt": "Modern sectional sofa in living room",
+        "position": 0
+      },
+      {
+        "id": "cmhdvos5h0008erec3dby14vy",
+        "productId": "cmhdvos5h0006erecni73z1v4",
+        "src": "https://picsum.photos/seed/sofa-2/800/600",
+        "alt": "Sectional sofa detail view",
+        "position": 1
+      }
+    ],
+    "variants": [
+      {
+        "id": "cmhdvos5h0009erecxvy16llo",
+        "productId": "cmhdvos5h0006erecni73z1v4",
+        "name": "Color",
+        "value": "Gray",
+        "priceAdjustment": 0,
+        "inStock": true,
+        "inventory": 0
+      },
+      {
+        "id": "cmhdvos5h000aereccj2q40qf",
+        "productId": "cmhdvos5h0006erecni73z1v4",
+        "name": "Color",
+        "value": "Navy",
+        "priceAdjustment": 5000,
+        "inStock": true,
+        "inventory": 0
+      },
+      {
+        "id": "cmhdvos5h000berecuv51gknw",
+        "productId": "cmhdvos5h0006erecni73z1v4",
+        "name": "Color",
+        "value": "Beige",
+        "priceAdjustment": 3000,
+        "inStock": true,
+        "inventory": 0
+      },
+      {
+        "id": "cmhdvos5h000cereckawm0fn8",
+        "productId": "cmhdvos5h0006erecni73z1v4",
+        "name": "Size",
+        "value": "Standard",
+        "priceAdjustment": 0,
+        "inStock": true,
+        "inventory": 0
+      },
+      {
+        "id": "cmhdvos5h000derectuu9egcy",
+        "productId": "cmhdvos5h0006erecni73z1v4",
+        "name": "Size",
+        "value": "Large",
+        "priceAdjustment": 15000,
+        "inStock": true,
+        "inventory": 0
+      }
+    ],
+    "collections": [
+      {
+        "productId": "cmhdvos5h0006erecni73z1v4",
+        "collectionId": "cmhdvos1n0004erecznv0pqsn",
+        "collection": {
+          "id": "cmhdvos1n0004erecznv0pqsn",
+          "name": "Living Room",
+          "slug": "living-room",
+          "description": "Comfortable and stylish furniture for your living room",
+          "image": "https://picsum.photos/seed/living-room/800/600",
+          "createdAt": "2025-10-30T20:29:54.271Z",
+          "updatedAt": "2025-10-30T20:29:54.271Z"
+        }
+      }
+    ]
+  },
+  {
+    "id": "cmhdvosdj000eerecwet1a7et",
+    "odooId": 3,
+    "name": "Elegant Dining Table",
+    "slug": "elegant-dining-table",
+    "description": "Solid wood dining table with extendable design. Seats 6-8 people comfortably.",
+    "price": 75000,
+    "compareAtPrice": 90000,
+    "category": "dining",
+    "tags": [
+      "dining",
+      "wood",
+      "extendable",
+      "formal"
+    ],
+    "inStock": true,
+    "inventory": 8,
+    "weight": 65,
+    "dimensions": {
+      "width": 90,
+      "height": 75,
+      "length": 180
+    },
+    "avgRating": 0,
+    "reviewCount": 0,
+    "createdAt": "2025-10-30T20:29:54.727Z",
+    "updatedAt": "2026-01-21T18:45:35.333Z",
+    "images": [
+      {
+        "id": "cmhdvosdj000ferec9z8qyocy",
+        "productId": "cmhdvosdj000eerecwet1a7et",
+        "src": "https://picsum.photos/seed/dining-table/800/600",
+        "alt": "Elegant wooden dining table",
+        "position": 0
+      }
+    ],
+    "variants": [
+      {
+        "id": "cmhdvosdj000gereczysvtjg9",
+        "productId": "cmhdvosdj000eerecwet1a7et",
+        "name": "Wood",
+        "value": "Oak",
+        "priceAdjustment": 0,
+        "inStock": true,
+        "inventory": 0
+      },
+      {
+        "id": "cmhdvosdj000herec4e6dktud",
+        "productId": "cmhdvosdj000eerecwet1a7et",
+        "name": "Wood",
+        "value": "Walnut",
+        "priceAdjustment": 10000,
+        "inStock": true,
+        "inventory": 0
+      },
+      {
+        "id": "cmhdvosdj000ierece59ftlyy",
+        "productId": "cmhdvosdj000eerecwet1a7et",
+        "name": "Wood",
+        "value": "Mahogany",
+        "priceAdjustment": 15000,
+        "inStock": true,
+        "inventory": 0
+      }
+    ],
+    "collections": [
+      {
+        "productId": "cmhdvosdj000eerecwet1a7et",
+        "collectionId": "cmhdvos0s0003erec1wzdvnzn",
+        "collection": {
+          "id": "cmhdvos0s0003erec1wzdvnzn",
+          "name": "Dining Room",
+          "slug": "dining-room",
+          "description": "Elegant dining furniture for memorable meals",
+          "image": "https://picsum.photos/seed/dining-room/800/600",
+          "createdAt": "2025-10-30T20:29:54.268Z",
+          "updatedAt": "2025-10-30T20:29:54.268Z"
+        }
+      }
+    ]
+  },
+  {
+    "id": "cmhdvosl3000jereczx14rip1",
+    "odooId": 4,
+    "name": "Luxury King Bed Frame",
+    "slug": "luxury-king-bed-frame",
+    "description": "Premium upholstered bed frame with tufted headboard. Available in multiple sizes.",
+    "price": 95000,
+    "compareAtPrice": 120000,
+    "category": "bedroom",
+    "tags": [
+      "bedroom",
+      "luxury",
+      "upholstered",
+      "tufted"
+    ],
+    "inStock": true,
+    "inventory": 5,
+    "weight": 45,
+    "dimensions": {
+      "width": 200,
+      "height": 120,
+      "length": 220
+    },
+    "avgRating": 0,
+    "reviewCount": 0,
+    "createdAt": "2025-10-30T20:29:54.999Z",
+    "updatedAt": "2026-01-21T18:45:35.862Z",
+    "images": [
+      {
+        "id": "cmhdvosl3000kerec19jxsx19",
+        "productId": "cmhdvosl3000jereczx14rip1",
+        "src": "https://picsum.photos/seed/king-bed/800/600",
+        "alt": "Luxury king bed frame",
+        "position": 0
+      }
+    ],
+    "variants": [
+      {
+        "id": "cmhdvosl3000lerec1pj8b9wo",
+        "productId": "cmhdvosl3000jereczx14rip1",
+        "name": "Size",
+        "value": "Queen",
+        "priceAdjustment": -15000,
+        "inStock": true,
+        "inventory": 0
+      },
+      {
+        "id": "cmhdvosl3000merecp6f745bk",
+        "productId": "cmhdvosl3000jereczx14rip1",
+        "name": "Size",
+        "value": "King",
+        "priceAdjustment": 0,
+        "inStock": true,
+        "inventory": 0
+      },
+      {
+        "id": "cmhdvosl3000nerecrfcz8s8f",
+        "productId": "cmhdvosl3000jereczx14rip1",
+        "name": "Color",
+        "value": "Charcoal",
+        "priceAdjustment": 0,
+        "inStock": true,
+        "inventory": 0
+      },
+      {
+        "id": "cmhdvosl3000oerectdbjvv98",
+        "productId": "cmhdvosl3000jereczx14rip1",
+        "name": "Color",
+        "value": "Cream",
+        "priceAdjustment": 2000,
+        "inStock": true,
+        "inventory": 0
+      }
+    ],
+    "collections": [
+      {
+        "productId": "cmhdvosl3000jereczx14rip1",
+        "collectionId": "cmhdvos1p0005erec0mmep2hj",
+        "collection": {
+          "id": "cmhdvos1p0005erec0mmep2hj",
+          "name": "Bedroom",
+          "slug": "bedroom",
+          "description": "Create your perfect sleeping sanctuary",
+          "image": "https://picsum.photos/seed/bedroom/800/600",
+          "createdAt": "2025-10-30T20:29:54.273Z",
+          "updatedAt": "2025-10-30T20:29:54.273Z"
+        }
+      }
+    ]
+  },
+  {
+    "id": "cmhdvosw2000verec6lufd1l9",
+    "odooId": 5,
+    "name": "Coffee Table Set",
+    "slug": "coffee-table-set",
+    "description": "Modern glass-top coffee table with matching side tables. Perfect for contemporary living rooms.",
+    "price": 35000,
+    "compareAtPrice": null,
+    "category": "tables",
+    "tags": [
+      "coffee-table",
+      "glass",
+      "modern",
+      "set"
+    ],
+    "inStock": true,
+    "inventory": 15,
+    "weight": 25,
+    "dimensions": null,
+    "avgRating": 0,
+    "reviewCount": 0,
+    "createdAt": "2025-10-30T20:29:55.394Z",
+    "updatedAt": "2026-01-21T18:45:36.367Z",
+    "images": [
+      {
+        "id": "cmhdvosw2000werecdp9jzd9o",
+        "productId": "cmhdvosw2000verec6lufd1l9",
+        "src": "https://picsum.photos/seed/coffee-table/800/600",
+        "alt": "Modern coffee table set",
+        "position": 0
+      }
+    ],
+    "variants": [],
+    "collections": [
+      {
+        "productId": "cmhdvosw2000verec6lufd1l9",
+        "collectionId": "cmhdvos1n0004erecznv0pqsn",
+        "collection": {
+          "id": "cmhdvos1n0004erecznv0pqsn",
+          "name": "Living Room",
+          "slug": "living-room",
+          "description": "Comfortable and stylish furniture for your living room",
+          "image": "https://picsum.photos/seed/living-room/800/600",
+          "createdAt": "2025-10-30T20:29:54.271Z",
+          "updatedAt": "2025-10-30T20:29:54.271Z"
+        }
+      }
+    ]
+  }
+]
