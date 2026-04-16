@@ -15,6 +15,6 @@ module.exports = defineConfig({
     }
   },
   admin: {
-    disable: true,
+    disable: process.env.MEDUSA_ADMIN_DISABLED === "true",
   },
 })
