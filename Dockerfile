@@ -28,7 +28,6 @@ RUN npm ci --omit=dev
 COPY --from=builder /app/.medusa ./.medusa
 COPY --from=builder /app/medusa-config.js ./
 COPY --from=builder /app/tsconfig.json ./
-COPY --from=builder /app/src ./src
 COPY --from=builder /app/prisma_products.json ./
 COPY --from=builder /app/vite.config.js ./
 
