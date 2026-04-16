@@ -21,15 +21,12 @@ WORKDIR /app
 RUN npm install -g @medusajs/cli@2.13.6
 
 COPY --from=builder /app/package*.json ./
-RUN npm ci --omit=dev
+RUN npm install
 
 COPY --from=builder /app/.medusa ./.medusa
 COPY --from=builder /app/medusa-config.js ./
 COPY --from=builder /app/tsconfig.json ./
 COPY --from=builder /app/src ./src
-
-# Create dummy admin file to bypass 'Could not find index.html' crash
-RUN mkdir -p .medusa/admin && touch .medusa/admin/index.html
 
 # Create a non-root user for security
 RUN addgroup -S medusa && adduser -S medusa -G medusa
@@ -38,4 +35,4 @@ USER medusa
 
 EXPOSE 9000
 
-CMD ["medusa", "start"]
+CMD ["medusa", "develop"]
