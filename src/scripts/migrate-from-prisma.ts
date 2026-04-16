@@ -33,8 +33,11 @@ export default async function migrateFromPrisma({ container }: ExecArgs) {
 
   const CURRENCY_CODE = "inr";
 
+  if (!SALES_CHANNEL_ID) logger.error("MISSING SALES CHANNEL ID");
+  if (!REGION_ID_INDIA) logger.error("MISSING REGION ID");
+  if (!SHIPPING_PROFILE_ID) logger.error("MISSING SHIPPING PROFILE ID");
+
   if (!SALES_CHANNEL_ID || !REGION_ID_INDIA || !SHIPPING_PROFILE_ID) {
-    logger.error(`Missing required IDs: SC: ${SALES_CHANNEL_ID}, REGION: ${REGION_ID_INDIA}, SP: ${SHIPPING_PROFILE_ID}`);
     return;
   }
 
