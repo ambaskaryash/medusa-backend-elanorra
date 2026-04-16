@@ -13,7 +13,8 @@ COPY . .
 RUN DATABASE_URL=postgresql://dummy:dummy@localhost:5432/dummy \
     MEDUSA_ADMIN_ONBOARDING_TYPE=default \
     MEDUSA_ADMIN_DISABLED=false \
-    npx medusa build
+    CI=true \
+    npx medusa build --admin
 RUN ls .medusa/admin/index.html
 
 # Stage 2: Production
