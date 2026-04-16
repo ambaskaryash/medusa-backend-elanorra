@@ -44,7 +44,7 @@ export default async function migrateFromPrisma({ container }: ExecArgs) {
     return !existingCategoryHandles.has(handle);
   });
 
-  let allCategories = [...existingCategories];
+  let allCategories: any[] = [...existingCategories];
 
   if (categoriesToCreate.length > 0) {
     logger.info(`Creating ${categoriesToCreate.length} missing categories...`);
@@ -87,7 +87,7 @@ export default async function migrateFromPrisma({ container }: ExecArgs) {
     const existingHandles = new Set(existingCollections.map(c => c.handle));
     const toCreate = collectionData.filter(cd => !existingHandles.has(cd.handle));
     
-    let allCollections = [...existingCollections];
+    let allCollections: any[] = [...existingCollections];
     if (toCreate.length > 0) {
       const createdCollections = await productModuleService.createProductCollections(toCreate);
       allCollections = [...allCollections, ...createdCollections];
