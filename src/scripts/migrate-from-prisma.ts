@@ -22,7 +22,7 @@ export default async function migrateFromPrisma({ container }: ExecArgs) {
   // Dynamic Lookup of IDs
   logger.info("Fetching default IDs...");
   
-  const [salesChannels] = await salesChannelService.listAndCount({ name: "Default Sales Channel" });
+  const salesChannels = await salesChannelService.listSalesChannels({ name: "Default Sales Channel" });
   const SALES_CHANNEL_ID = salesChannels[0]?.id;
   
   const regions = await regionService.listRegions();
