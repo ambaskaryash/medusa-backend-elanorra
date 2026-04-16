@@ -25,9 +25,9 @@ services:
     environment:
       - NODE_ENV=production
       - MEDUSA_WORKER_MODE=server
-      - MEDUSA_ADMIN_DISABLED=true
       - DATABASE_URL=postgresql://${DB_USERNAME:-medusa}:${DB_PASSWORD:-medusa}@postgres:5432/${DB_NAME:-medusa}?sslmode=disable
       - REDIS_URL=redis://redis:6379
+      - MEDUSA_BACKEND_URL=https://api.elanorraliving.in
       - JWT_SECRET=${JWT_SECRET}
       - COOKIE_SECRET=${COOKIE_SECRET}
       - STORE_CORS=${STORE_CORS}
@@ -40,6 +40,8 @@ services:
         condition: service_started
     ports:
       - "9000:9000"
+    volumes:
+      - admin_build:/app/.medusa/admin
 
   medusa-worker:
     build: .
@@ -66,6 +68,7 @@ services:
       - ./nginx/html:/usr/share/nginx/html
       - ./nginx/certs:/etc/letsencrypt
       - ./nginx/certbot:/var/www/certbot
+      - admin_build:/usr/share/nginx/html/admin:ro
     depends_on:
       - medusa-api
 
@@ -79,3 +82,4 @@ services:
 volumes:
   postgres_data:
   redis_data:
+  admin_build:

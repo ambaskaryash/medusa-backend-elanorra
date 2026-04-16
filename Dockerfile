@@ -1,10 +1,10 @@
 # Stage 1: Build
-FROM node:20-alpine AS builder
+FROM node:20 AS builder
 
 WORKDIR /app
 
 # Install dependencies needed for node-gyp and other builds
-RUN apk add --no-cache python3 make g++
+RUN apt-get update && apt-get install -y python3 make g++
 
 COPY package*.json ./
 RUN npm ci
@@ -12,7 +12,7 @@ RUN npm ci
 COPY . .
 RUN DATABASE_URL=postgresql://dummy:dummy@localhost:5432/dummy \
     MEDUSA_ADMIN_ONBOARDING_TYPE=default \
-    npm run build
+    npx medusa build
 
 # Stage 2: Production
 FROM node:20-alpine
