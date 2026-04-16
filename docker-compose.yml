@@ -42,7 +42,7 @@ services:
     ports:
       - "9000:9000"
     volumes:
-      - admin_build:/app/.medusa/admin
+      - admin_build_v2:/app/.medusa/admin
 
   medusa-worker:
     build: .
@@ -69,7 +69,7 @@ services:
       - ./nginx/html:/usr/share/nginx/html
       - ./nginx/certs:/etc/letsencrypt
       - ./nginx/certbot:/var/www/certbot
-      - admin_build:/usr/share/nginx/html/admin:ro
+      - admin_build_v2:/usr/share/nginx/html/admin:ro
     depends_on:
       - medusa-api
 
@@ -83,4 +83,4 @@ services:
 volumes:
   postgres_data:
   redis_data:
-  admin_build:
+  admin_build_v2:
