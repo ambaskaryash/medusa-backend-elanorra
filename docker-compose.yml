@@ -34,6 +34,7 @@ services:
       - ./nginx/html:/usr/share/nginx/html
       - ./nginx/certs:/etc/letsencrypt
       - ./nginx/certbot:/var/www/certbot
+      - ./.medusa/server/public/admin:/usr/share/nginx/html/admin:ro
     extra_hosts:
       - "host.docker.internal:host-gateway"
     depends_on:
