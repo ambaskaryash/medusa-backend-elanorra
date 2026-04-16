@@ -16,6 +16,7 @@ RUN DATABASE_URL=postgresql://dummy:dummy@localhost:5432/dummy \
     NODE_ENV=production \
     CI=true \
     npx medusa build
+RUN find . -name "index.html"
 RUN ls .medusa/admin/index.html
 
 # Stage 2: Production

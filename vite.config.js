@@ -1,7 +1,8 @@
-import { defineConfig } from "vite";
+import { defineConfig } from "vite"
+import medusaDashboard from "@medusajs/dashboard/vite-plugin"
 
 export default defineConfig({
-  server: {
-    allowedHosts: ["api.elanorraliving.in"],
-  },
-});
+  plugins: [
+    medusaDashboard(),
+  ],
+})

@@ -2,7 +2,9 @@ version: '3.8'
 
 services:
   postgres:
-    image: postgres:14-alpine
+    image: postgres:16-alpine
+    ports:
+      - "5432:5432"
     environment:
       POSTGRES_USER: ${DB_USERNAME:-medusa}
       POSTGRES_PASSWORD: ${DB_PASSWORD:-medusa}
@@ -17,47 +19,10 @@ services:
 
   redis:
     image: redis:alpine
+    ports:
+      - "6379:6379"
     volumes:
       - redis_data:/data
-
-  medusa-api:
-    build: .
-    environment:
-      - NODE_ENV=production
-      - MEDUSA_WORKER_MODE=server
-      - DATABASE_URL=postgresql://${DB_USERNAME:-medusa}:${DB_PASSWORD:-medusa}@postgres:5432/${DB_NAME:-medusa}?sslmode=disable
-      - REDIS_URL=redis://redis:6379
-      - MEDUSA_BACKEND_URL=https://api.elanorraliving.in
-      - MEDUSA_ADMIN_DISABLED=true
-      - JWT_SECRET=${JWT_SECRET}
-      - COOKIE_SECRET=${COOKIE_SECRET}
-      - STORE_CORS=${STORE_CORS}
-      - ADMIN_CORS=${ADMIN_CORS}
-      - AUTH_CORS=${AUTH_CORS}
-    depends_on:
-      postgres:
-        condition: service_healthy
-      redis:
-        condition: service_started
-    ports:
-      - "9000:9000"
-    volumes:
-      - admin_build_v2:/app/.medusa/admin
-
-  medusa-worker:
-    build: .
-    environment:
-      - NODE_ENV=production
-      - MEDUSA_WORKER_MODE=worker
-      - DATABASE_URL=postgresql://${DB_USERNAME:-medusa}:${DB_PASSWORD:-medusa}@postgres:5432/${DB_NAME:-medusa}?sslmode=disable
-      - REDIS_URL=redis://redis:6379
-      - JWT_SECRET=${JWT_SECRET}
-      - COOKIE_SECRET=${COOKIE_SECRET}
-    depends_on:
-      postgres:
-        condition: service_healthy
-      redis:
-        condition: service_started
 
   nginx:
     image: nginx:alpine
@@ -69,9 +34,13 @@ services:
       - ./nginx/html:/usr/share/nginx/html
       - ./nginx/certs:/etc/letsencrypt
       - ./nginx/certbot:/var/www/certbot
-      - admin_build_v2:/usr/share/nginx/html/admin:ro
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     depends_on:
-      - medusa-api
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_started
 
   certbot:
     image: certbot/certbot
@@ -83,4 +52,3 @@ services:
 volumes:
   postgres_data:
   redis_data:
-  admin_build_v2:
