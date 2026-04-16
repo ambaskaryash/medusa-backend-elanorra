@@ -19,27 +19,40 @@ export default async function migrateFromPrisma({ container }: ExecArgs) {
   const regionService = container.resolve(Modules.REGION);
   const fulfillmentService = container.resolve(Modules.FULFILLMENT);
 
-  // Dynamic Lookup of IDs
-  logger.info("Fetching default IDs...");
+  // Dynamic Lookup of IDs with Auto-Creation
+  logger.info("Fetching/Bootstrapping default IDs...");
   
-  const salesChannels = await salesChannelService.listSalesChannels({ name: "Default Sales Channel" });
+  let salesChannels = await salesChannelService.listSalesChannels({ name: "Default Sales Channel" });
+  if (salesChannels.length === 0) {
+    logger.info("Creating Default Sales Channel...");
+    salesChannels = [await salesChannelService.createSalesChannels({ name: "Default Sales Channel", description: "Standard sales channel" })];
+  }
   const SALES_CHANNEL_ID = salesChannels[0]?.id;
   
-  const regions = await regionService.listRegions();
-  const REGION_ID_INDIA = regions.find(r => r.name.toLowerCase().includes("india"))?.id || regions[0]?.id;
+  let regions = await regionService.listRegions();
+  let indiaRegion = regions.find(r => r.name.toLowerCase().includes("india"));
+  if (!indiaRegion) {
+    logger.info("Creating India Region...");
+    indiaRegion = await regionService.createRegions({
+      name: "India",
+      currency_code: "inr",
+      countries: ["in"],
+    });
+  }
+  const REGION_ID_INDIA = indiaRegion.id;
   
-  const shippingProfiles = await fulfillmentService.listShippingProfiles();
-  const SHIPPING_PROFILE_ID = shippingProfiles.find(p => p.type === "default")?.id || shippingProfiles[0]?.id;
+  let shippingProfiles = await fulfillmentService.listShippingProfiles();
+  let defaultProfile = shippingProfiles.find(p => p.type === "default");
+  if (!defaultProfile) {
+    logger.info("Creating Default Shipping Profile...");
+    defaultProfile = await fulfillmentService.createShippingProfiles({
+      name: "Default Profile",
+      type: "default",
+    });
+  }
+  const SHIPPING_PROFILE_ID = defaultProfile.id;
 
   const CURRENCY_CODE = "inr";
-
-  if (!SALES_CHANNEL_ID) logger.error("MISSING SALES CHANNEL ID");
-  if (!REGION_ID_INDIA) logger.error("MISSING REGION ID");
-  if (!SHIPPING_PROFILE_ID) logger.error("MISSING SHIPPING PROFILE ID");
-
-  if (!SALES_CHANNEL_ID || !REGION_ID_INDIA || !SHIPPING_PROFILE_ID) {
-    return;
-  }
 
   logger.info(`Using IDs: SC=${SALES_CHANNEL_ID}, REGION=${REGION_ID_INDIA}, SP=${SHIPPING_PROFILE_ID}`);
 
