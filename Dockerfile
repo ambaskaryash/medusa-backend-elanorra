@@ -28,6 +28,9 @@ COPY --from=builder /app/medusa-config.js ./
 COPY --from=builder /app/tsconfig.json ./
 COPY --from=builder /app/src ./src
 
+# Create dummy admin file to bypass 'Could not find index.html' crash
+RUN mkdir -p .medusa/admin && touch .medusa/admin/index.html
+
 # Create a non-root user for security
 RUN addgroup -S medusa && adduser -S medusa -G medusa
 RUN chown -R medusa:medusa /app
