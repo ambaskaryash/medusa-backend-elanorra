@@ -10,7 +10,7 @@ COPY package*.json ./
 RUN npm ci
 
 COPY . .
-RUN npm run build
+RUN DATABASE_URL=postgresql://dummy:dummy@localhost:5432/dummy npm run build
 
 # Stage 2: Production
 FROM node:20-alpine
