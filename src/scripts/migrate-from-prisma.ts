@@ -15,11 +15,30 @@ export default async function migrateFromPrisma({ container }: ExecArgs) {
   const logger = container.resolve(ContainerRegistrationKeys.LOGGER);
   const query = container.resolve(ContainerRegistrationKeys.QUERY);
   const productModuleService = container.resolve(Modules.PRODUCT);
+  const salesChannelService = container.resolve(Modules.SALES_CHANNEL);
+  const regionService = container.resolve(Modules.REGION);
+  const fulfillmentService = container.resolve(Modules.FULFILLMENT);
 
-  const SALES_CHANNEL_ID = "sc_01KP5DFY5K628MAMC03PFGEWCT";
-  const SHIPPING_PROFILE_ID = "sp_01KP5DDE9CYBB6KP3CMAHR8QFE";
-  const REGION_ID_INDIA = "reg_01KP88WGBK7TX0WWBKSDNAT2ZY";
+  // Dynamic Lookup of IDs
+  logger.info("Fetching default IDs...");
+  
+  const [salesChannels] = await salesChannelService.listAndCount({ name: "Default Sales Channel" });
+  const SALES_CHANNEL_ID = salesChannels[0]?.id;
+  
+  const regions = await regionService.listRegions();
+  const REGION_ID_INDIA = regions.find(r => r.name.toLowerCase().includes("india"))?.id || regions[0]?.id;
+  
+  const shippingProfiles = await fulfillmentService.listShippingProfiles();
+  const SHIPPING_PROFILE_ID = shippingProfiles.find(p => p.type === "default")?.id || shippingProfiles[0]?.id;
+
   const CURRENCY_CODE = "inr";
+
+  if (!SALES_CHANNEL_ID || !REGION_ID_INDIA || !SHIPPING_PROFILE_ID) {
+    logger.error(`Missing required IDs: SC: ${SALES_CHANNEL_ID}, REGION: ${REGION_ID_INDIA}, SP: ${SHIPPING_PROFILE_ID}`);
+    return;
+  }
+
+  logger.info(`Using IDs: SC=${SALES_CHANNEL_ID}, REGION=${REGION_ID_INDIA}, SP=${SHIPPING_PROFILE_ID}`);
 
   logger.info("Reading prisma_products.json...");
   const rawData = fs.readFileSync(path.join(process.cwd(), "prisma_products.json"), "utf-8");
