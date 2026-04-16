@@ -25,7 +25,7 @@ services:
     environment:
       - NODE_ENV=production
       - MEDUSA_WORKER_MODE=server
-      - DATABASE_URL=postgresql://${DB_USERNAME:-medusa}:${DB_PASSWORD:-medusa}@postgres:5432/${DB_NAME:-medusa}
+      - DATABASE_URL=postgresql://${DB_USERNAME:-medusa}:${DB_PASSWORD:-medusa}@postgres:5432/${DB_NAME:-medusa}?sslmode=disable
       - REDIS_URL=redis://redis:6379
       - JWT_SECRET=${JWT_SECRET}
       - COOKIE_SECRET=${COOKIE_SECRET}
@@ -45,7 +45,7 @@ services:
     environment:
       - NODE_ENV=production
       - MEDUSA_WORKER_MODE=worker
-      - DATABASE_URL=postgresql://${DB_USERNAME:-medusa}:${DB_PASSWORD:-medusa}@postgres:5432/${DB_NAME:-medusa}
+      - DATABASE_URL=postgresql://${DB_USERNAME:-medusa}:${DB_PASSWORD:-medusa}@postgres:5432/${DB_NAME:-medusa}?sslmode=disable
       - REDIS_URL=redis://redis:6379
       - JWT_SECRET=${JWT_SECRET}
       - COOKIE_SECRET=${COOKIE_SECRET}
