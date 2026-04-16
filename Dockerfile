@@ -24,7 +24,8 @@ COPY --from=builder /app/package*.json ./
 RUN npm ci --omit=dev
 
 COPY --from=builder /app/.medusa ./.medusa
-COPY --from=builder /app/medusa-config.js ./
+COPY --from=builder /app/medusa-config.ts ./
+COPY --from=builder /app/tsconfig.json ./
 COPY --from=builder /app/src ./src
 
 # Create a non-root user for security
