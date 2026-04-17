@@ -24,20 +24,14 @@ export default async function enableINR({ container }: ExecArgs) {
   const existingCurrencies = store.supported_currencies || [];
   const existingCodes = existingCurrencies.map((c: any) => c.currency_code);
   
-  // Create a clean list of supported currencies
-  let newCurrencies = [...existingCurrencies];
-  
-  if (!existingCodes.includes("inr")) {
-    newCurrencies.push({
-      currency_code: "inr",
-      is_default: true // We'll make it default if it's new
-    });
-  }
+  // Combine existing codes with INR
+  const allCodes = [...new Set([...existingCodes, "inr"])];
 
-  // Ensure only one is default (if we set INR as default)
-  newCurrencies = newCurrencies.map(c => ({
-    currency_code: c.currency_code,
-    is_default: c.currency_code === "inr" 
+  // SANITIZE: Only send currency_code and is_default
+  // This prevents the "fieldNames" error by removing IDs/timestamps from the update
+  const newCurrencies = allCodes.map(code => ({
+    currency_code: code,
+    is_default: code === "inr" 
   }));
 
   try {
@@ -47,12 +41,11 @@ export default async function enableINR({ container }: ExecArgs) {
         selector: { id: store.id },
         update: {
           supported_currencies: newCurrencies,
-          default_currency_code: "inr"
         },
       },
     });
 
-    logger.info("Successfully added INR to supported currencies and set as default!");
+    logger.info(`Successfully enabled INR! Current currencies: ${allCodes.join(", ")}`);
   } catch (error) {
     logger.error("Failed to update store currencies.");
     logger.error(error.message);
