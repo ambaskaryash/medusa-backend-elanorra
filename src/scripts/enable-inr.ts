@@ -6,19 +6,38 @@ export default async function enableINR({ container }: ExecArgs) {
   const logger = container.resolve(ContainerRegistrationKeys.LOGGER);
   const storeModuleService = container.resolve(Modules.STORE);
 
-  // 1. Get the current store
-  const [store] = await storeModuleService.listStores({
-    relations: ["supported_currencies"],
+  // 1. Get the current store and its currencies using the Query Engine
+  const query = container.resolve(ContainerRegistrationKeys.QUERY);
+  const { data: [store] } = await query.graph({
+    entity: "store",
+    fields: ["id", "name", "supported_currencies.*"],
   });
+
+  if (!store) {
+    logger.error("No store found.");
+    return;
+  }
 
   logger.info(`Fixing currencies for Store: ${store.name || store.id}`);
 
-  // 2. Prepare the currency list (keep existing, add INR)
-  const existingCodes = (store as any).supported_currencies?.map((c: any) => c.currency_code) || [];
+  // 2. Prepare the currency list (keep existing, ensure INR is there)
+  const existingCurrencies = store.supported_currencies || [];
+  const existingCodes = existingCurrencies.map((c: any) => c.currency_code);
   
-  const newCurrencies = [...new Set([...existingCodes, "inr"])].map(code => ({
-    currency_code: code,
-    is_default: code === "inr" // Set INR as default
+  // Create a clean list of supported currencies
+  let newCurrencies = [...existingCurrencies];
+  
+  if (!existingCodes.includes("inr")) {
+    newCurrencies.push({
+      currency_code: "inr",
+      is_default: true // We'll make it default if it's new
+    });
+  }
+
+  // Ensure only one is default (if we set INR as default)
+  newCurrencies = newCurrencies.map(c => ({
+    currency_code: c.currency_code,
+    is_default: c.currency_code === "inr" 
   }));
 
   try {
