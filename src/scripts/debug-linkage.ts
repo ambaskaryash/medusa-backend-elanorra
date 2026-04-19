@@ -8,19 +8,19 @@ export default async function debugLinkage({ container }: ExecArgs) {
   const regionModuleService = container.resolve(Modules.REGION);
 
   // 1. List Sales Channels
-  const [salesChannels] = await salesChannelModuleService.listSalesChannels();
+  const salesChannels = await salesChannelModuleService.listSalesChannels();
   logger.info(`--- Sales Channels ---`);
   logger.info(JSON.stringify(salesChannels, null, 2));
 
   // 2. List Publishable API Keys and their links
-  const [apiKeys] = await apiKeyModuleService.listApiKeys({
+  const apiKeys = await apiKeyModuleService.listApiKeys({
     type: "publishable"
   });
   logger.info(`--- Publishable API Keys ---`);
   logger.info(JSON.stringify(apiKeys, null, 2));
 
   // 3. List Regions
-  const [regions] = await regionModuleService.listRegions();
+  const regions = await regionModuleService.listRegions();
   logger.info(`--- Regions ---`);
   logger.info(JSON.stringify(regions, null, 2));
 

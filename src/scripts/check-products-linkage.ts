@@ -25,7 +25,7 @@ export default async function checkProductsLinkage({ container }: ExecArgs) {
   logger.info(`--- Store Detail ---`);
   logger.info(`Total Products in DB: ${count}`);
 
-  if (salesChannels.some(sc => sc.products?.length === 0 && count > 0)) {
+  if (salesChannels.some((sc: any) => sc.products?.length === 0 && count > 0)) {
     logger.warn("WARNING: You have products in your database, but they are NOT assigned to any Sales Channel. Your publishable key will see nothing.");
   }
 }
